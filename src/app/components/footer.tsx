@@ -29,21 +29,21 @@ export const Footer = () => {
 				<div className="flex gap-12">
 					<div>
 						<h5 className="text-2xl mb-4">Siga-nos</h5>
-						<div className="flex flex-col gap-5">
+						<div className="flex flex-col gap-3">
 							<a href={LINKS.INSTAGRAM} target="_blank" rel="noopener noreferrer">
-								<div className="flex gap-1"><Icons.instagram />Instagram</div>
+								<div className="flex gap-3"><Icons.instagram />Instagram</div>
 							</a>
 							<a href={LINKS.YOUTUBE} target="_blank" rel="noopener noreferrer">
-								<div className="flex gap-1"><Icons.youtube />YouTube</div>
+								<div className="flex gap-3"><Icons.youtube />YouTube</div>
 							</a>
 							<a href={LINKS.FACEBOOK} target="_blank" rel="noopener noreferrer">
-								<div className="flex gap-1"><Icons.facebook />Facebook</div>
+								<div className="flex gap-3"><Icons.facebook />Facebook</div>
 							</a>
 						</div>
 					</div>
 					<div>
 						<h5 className="text-2xl mb-4">Fale conosco</h5>
-						<div className="flex gap-1"><Icons.email /><a>E-mail</a></div>
+						<div className="flex gap-3"><Icons.email /><a>E-mail</a></div>
 					</div>
 				</div>
 

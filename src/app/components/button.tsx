@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export const Button = ({ children, square = false, onClick} : ButtonProps) => {
 	const baseClasses = "rounded bg-twb-green text-twb-grey-dark";
-	const shapeClasses = square ? "w-12 h-12 flex items-center justify-center" : "px-4 py-2";
+	const shapeClasses = square ? "w-12 h-12 flex items-center justify-center" : "px-4 py-2 font-semibold";
 
 	const className = `${baseClasses} ${shapeClasses}`;
 	return (
