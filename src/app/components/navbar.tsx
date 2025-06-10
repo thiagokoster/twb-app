@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icons } from "../icons";
 export const NavBar = () => {
 	return (
-		<div className="px-24 py-7 bg-red-900">
+		<div className="absolute top-0 w-full z-50 px-24 py-7 bg-twb-navbar/24 backdrop-blur-sm">
 			<div className="flex justify-between items-center">
 				<Image src="/logo.png" alt="Logo" width={106} height={65} />
 				<div className="flex gap-8 items-center">
