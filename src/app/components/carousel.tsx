@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Icons } from "../icons";
 
@@ -24,7 +24,7 @@ const slides = [
 		id: 2,
 		image: "/carousel/2.png",
 		content: (
-		      <div className="flex flex-col px-24 py-42">
+		      <div className="flex flex-col px-24 py-70">
 					<div className="flex flex-col gap-8">
 						<div className="text-[64px]">
 							Mudamos pessoas,<br/>
@@ -40,7 +40,7 @@ const slides = [
 		id: 3,
 		image: "/carousel/3.png",
 		content: (
-		      <div className="flex flex-col px-24 py-42">
+		      <div className="flex flex-col px-24 py-70">
 					<div className="flex flex-col gap-8">
 						<div className="text-[64px]">
 							Educação sem fronteiras,<br/>
@@ -56,16 +56,36 @@ const slides = [
 ];
 
 export const Carousel = () => {
+	const autoplayTimer = 5000;
 	const [current, setCurrent] = useState(0);
 
 	// Autoplay every 5 seconds
-	const timeout = 5000; 
-	useEffect(() => {
-		const interval = setInterval(() => {
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	// Autoplay function
+	const startAutoplay = () => {
+		intervalRef.current = setInterval(() => {
 			setCurrent((prev) => (prev + 1) % slides.length);
-		}, timeout)
-		return () => clearInterval(interval);
+		}, autoplayTimer);
+	};
+
+	// Initialize autoplay
+	useEffect(() => {
+		startAutoplay();
+		return () => {
+			if (intervalRef.current) {
+				clearInterval(intervalRef.current);
+			}
+		};
 	}, []);
+
+	const handleDotClick = (idx: number) => {
+		setCurrent(idx);
+		if (intervalRef.current) {
+			clearInterval(intervalRef.current);
+		}
+		startAutoplay();
+	}
+
 
 	return (
 		<div className="relative w-full overflow-hidden">
@@ -92,7 +112,7 @@ export const Carousel = () => {
 				{slides.map((_, idx) => (
 					<button
 						key={idx}
-						onClick={() => setCurrent(idx)}
+						onClick={() => handleDotClick(idx)}
 						className={`h-3 w-3 rounded-full border-1 ${idx === current ? "bg-white border-none" : "border-twb-grey bg-transparent"} transition-colors duration-300`}
 					/>
 				))}
