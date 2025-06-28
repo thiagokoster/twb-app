@@ -9,7 +9,7 @@ export default function Home() {
 				<NavBar />
 				<Carousel />
 				
-				<BlobImage imagePath="https://www.humblecc.com/wp-content/uploads/2020/01/placeholder-image.png" shapeKey="shape1" width={630} height={669} />
+				<BlobImage imagePath="image1.png" shapeKey="shape1" width={630} height={669} />
 			</div>
 		</main>
 	);
