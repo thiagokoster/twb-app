@@ -1,7 +1,7 @@
 import { Carousel } from "./components/carousel";
 import { NavBar } from "./components/navbar";
 import { BlobImage } from "./components/shapes";
-import { Map } from "./components/map";
+import { Map } from "./components/map/map";
 
 export default function Home() {
 	return (

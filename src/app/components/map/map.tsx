@@ -1,26 +1,14 @@
+"use client"
+
+import { CountryPath } from "./countryPath";
+import { CountryPin } from "./countryPin";
+
 const countryInfo = {
 	BR: { text: "TODO: change it", center: [342, 213] },
 	SN: { text: "TODO: change it", center: [501, 112] },
 	MZ: { text: "TODO: change it", center: [787, 270] },
 	MG: { text: "TODO: change it", center: [837, 308] },
 };
-
-const CountryPath = ({ code, d }: { code: string, d: string }) => {
-	const isActive = code in countryInfo;
-	const activeColor = "#F18322";
-	const inactiveColor = "#CCCCCC"
-	const strokeColor = "white"
-
-	return  (
-		<path 
-			className={code}
-			fill={isActive ? activeColor : inactiveColor}
-			stroke={strokeColor}
-			strokeWidth=".382"
-			d={d}
-		/>
-	);
-}
 
 export const Map = () => {
 
@@ -34,13 +22,6 @@ export const Map = () => {
 			</g>
 		</svg>
 	);
-}
-
-const CountryPin = ({ x, y }: { x: number, y: number }) => {
-	return (
-		<g transform={`translate(${x}, ${y})`}>
-			<path fill="#D31346" d="M5.007 26.07c.532 0 1.225-1.965 1.225-5.598V9.178A5.056 5.056 0 0 0 8.95 7.534 4.388 4.388 0 0 0 10 4.697C10 2.156 7.776.07 5.006.07 2.224.07 0 2.156 0 4.697c0 2.148 1.598 3.965 3.755 4.48v11.295c0 3.621.706 5.597 1.252 5.597ZM3.568 4.954c-.905 0-1.704-.736-1.704-1.596 0-.847.8-1.571 1.704-1.571.946 0 1.705.724 1.705 1.571 0 .86-.759 1.596-1.705 1.596Z" className="Vector"/>
-		</g>);
 }
 
 
