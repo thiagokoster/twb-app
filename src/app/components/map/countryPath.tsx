@@ -2,26 +2,34 @@
 
 import { CountryInfo } from "@/app/constants";
 
-export const CountryPath = ({ code, d }: { code: string, d: string }) => {
+export const CountryPath = ({ 
+	code,
+	d,
+	onEnter,
+	onLeave
+}: { 
+		code: string,
+		d: string,
+		onEnter?: (code: string) => void;
+		onLeave?: () => void;
+	}) => {
 	const isActive = code in CountryInfo;
-	const activeColor = "#F18322";
-	const inactiveColor = "#CCCCCC"
+	const color = isActive ? "active" : "inactive";
 	const strokeColor = "white"
 
-	const handleMouseEnter = () => {
-		if (isActive) {
-			console.log(`Hovered country: ${code}`);
-		}
-	};
+	const fillClass = {
+		active: "fill-[var(--color-map-active)]",
+		inactive: "fill-[var(--color-map-inactive)]"
+	}[color];
 
 	return  (
 		<path 
-			className={code}
-			fill={isActive ? activeColor : inactiveColor}
+			className={`${code} ${fillClass}`}
 			stroke={strokeColor}
 			strokeWidth=".382"
 			d={d}
-			onMouseEnter={handleMouseEnter}
+			onMouseEnter={() => isActive && onEnter?.(code)}
+			onMouseLeave={() => isActive && onLeave?.()}
 		/>
 	);
 }

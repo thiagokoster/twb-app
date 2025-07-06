@@ -13,6 +13,9 @@
   --color-twb-green: #C8D533;
   --color-white: #FEFEFE;
 
+  --color-map-inactive: #CCCCCC;
+  --color-map-active: #F18322
+
 }
 
 body {
