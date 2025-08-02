@@ -2,6 +2,7 @@
 
 @theme inline {
   --font-sans: var(--font-poppins);
+  --font-trash: var(--font-trash-hand);
 
   --color-twb-primary: #D31346;
   --color-twb-primary-dark: #9E0E35;
@@ -11,6 +12,7 @@
   --color-twb-navbar: #0D0D0D;
 
   --color-twb-green: #C8D533;
+  --color-twb-green-light: #FAFBEB;
   --color-white: #FEFEFE;
 
   --color-map-inactive: #CCCCCC;

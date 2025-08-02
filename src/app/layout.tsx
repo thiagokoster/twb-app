@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "./components/footer";
 import { Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
+
+const trashHand = localFont({
+	src: './fonts/TrashHand.ttf',
+  	variable: '--font-trash-hand',
+})
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -21,9 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${poppins.variable} antialiased`}>
+		<html lang="en" className={`${poppins.variable} ${trashHand.variable}`}>
+			<body className="antialiased">
 				{children}
 				<Footer />
 			</body>
