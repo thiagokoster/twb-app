@@ -6,14 +6,18 @@
 
   --color-twb-primary: #D31346;
   --color-twb-primary-dark: #9E0E35;
+  --color-twb-drawing: #F1B6C6;
+  --color-pink-light: #FBE7ED;
   --color-twb-grey-light: #E9E9E9;
   --color-twb-grey: #BBBBBB;
   --color-twb-grey-dark: #242424;
   --color-twb-navbar: #0D0D0D;
+  --color-twb-dark: #101010;
 
   --color-twb-green: #C8D533;
   --color-twb-green-light: #FAFBEB;
   --color-white: #FEFEFE;
+  --color-white-darker: #575757;
 
   --color-map-inactive: #CCCCCC;
   --color-map-active: #F18322
