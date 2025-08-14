@@ -53,32 +53,3 @@ export const BlobImage = ({ imagePath, shapeKey, width, height, rotation }: Blob
     </svg>
   );
 };
-export const BlobImageBck: React.FC<BlobImageProps> = ({ imagePath, shapeKey, width, height, rotation }) => {
-	const path = SHAPES[shapeKey];
-	const vb = SHAPE_VIEWBOX[shapeKey];
-
-	return(
-		<svg 
-			width={width}
-			height={height}
-			viewBox={`0 0 ${vb.w} ${vb.h}`}
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg" 
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
-			<defs>
-				<clipPath id={`clip-${shapeKey}`}>
-					<path d={path} transform={rotation ? `rotate(${rotation} 0 0) scale(1)` : "scale(1)"} />
-				</clipPath>
-			</defs>
-
-			<image
-				href={imagePath}
-				clipPath={`url(#clip-${shapeKey})`}
-				x="0" y="0"
-				width={width} height={height}
-				preserveAspectRatio="xMidYMid slice"
-			/>
-		</svg>
-	);
-};

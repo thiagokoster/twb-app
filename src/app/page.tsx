@@ -13,8 +13,8 @@ export default function Home() {
 				<NavBar />
 				<Carousel />
 
-				<div className="flex flex-row px-24 py-20 justify-center gap-25">
-					<BlobImage imagePath="image1.png" shapeKey="shape1" width={882} height={937} />
+				<div className="flex flex-row px-20 py-20 justify-center gap-20">
+					<BlobImage imagePath="image1.png" shapeKey="shape1" width={503} height={534} />
 					<div className="flex flex-col gap-8 justify-center">
 						<div className="flex flex-col gap-4">
 							{/* Section Title */}
