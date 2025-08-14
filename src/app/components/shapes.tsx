@@ -12,6 +12,14 @@ export const SHAPES: Record<string, string> = {
 
 };
 
+const SHAPE_VIEWBOX: Record<keyof typeof SHAPES, { w: number; h: number }> = {
+  shape1: { w: 630, h: 669 },
+  shape2: { w: 681, h: 686 },   // adjust if your source differs
+  shape3: { w: 660, h: 600 },
+  shape4: { w: 284, h: 236 },
+  roundedRect: { w: 286, h: 229 },
+};
+
 interface BlobImageProps {
 	imagePath: string,
 	shapeKey: keyof typeof SHAPES;
@@ -20,31 +28,28 @@ interface BlobImageProps {
 	rotation?: number
 }
 
-export const BlobImage: React.FC<BlobImageProps> = ({ imagePath, shapeKey, width, height, rotation }) => {
-	const path = SHAPES[shapeKey];
+export const BlobImage = ({ imagePath, shapeKey, width, height, rotation }: BlobImageProps) => {
+  const path = SHAPES[shapeKey];
+  const { w, h } = SHAPE_VIEWBOX[shapeKey];
 
-	return(
-		<svg 
-			width={width}
-			height={height}
-			viewBox={`0 0 ${width} ${height}`}
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg" 
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-		>
-			<defs>
-				<clipPath id={`clip-${shapeKey}`}>
-					<path d={path} transform={rotation ? `rotate(${rotation} 0 0) scale(1)` : "scale(1)"} />
-				</clipPath>
-			</defs>
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${w} ${h}`} className="block shrink-0">
+      <defs>
+        <clipPath id={`clip-${shapeKey}`} clipPathUnits="userSpaceOnUse">
+          <path d={path} transform={rotation ? `rotate(${rotation} 0 0)` : undefined} />
+        </clipPath>
+      </defs>
 
-			<image
-				href={imagePath}
-				clipPath={`url(#clip-${shapeKey})`}
-				x="0" y="0"
-				width={width} height={height}
-				preserveAspectRatio="xMidYMid slice"
-			/>
-		</svg>
-	);
+      <g clipPath={`url(#clip-${shapeKey})`}>
+        <image
+          href={imagePath}
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          preserveAspectRatio="xMidYMid slice"
+        />
+      </g>
+    </svg>
+  );
 };
