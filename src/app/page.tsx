@@ -43,7 +43,37 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				<Map />
+
+				{/* Section 'Estamos pelo Mundo'*/}
+				<section className="relative overflow-hidden py-20 px-4 md:px-8">
+					{/* Left plane – moved in from the edge */}
+					<img
+						src="/airplane.png"
+						alt=""
+						aria-hidden="true"
+						className="pointer-events-none select-none
+						absolute left-0 bottom-1/8 w-28
+						scale-x-[-1] scale-y-[-1]
+						"
+					/>
+
+					{/* Right plane – mirrored and moved in */}
+					<img
+						src="/airplane.png"
+						alt=""
+						aria-hidden="true"
+						className="pointer-events-none select-none
+						absolute right-0 top-2/6
+						w-28"
+					/>
+					<div className="flex flex-col items-center gap-2">
+						<p className="font-trash text-twb-primary text-3xl">ESTAMOS PELO MUNDO</p>
+						<p className="text-twb-dark text-5xl mb-4">Impacto do TWB</p>
+						<p className="text-white-darker font-normal w-100 text-center">Hoje, o TWB transforma vidas no Brasil e em 3 países da África. Com o seu apoio, podemos levar esperança ainda mais longe, ampliando essa corrente do bem e criando um futuro melhor para milhares de pessoas. Junte-se a nós e seja a mudança que o mundo precisa!</p>
+						<Map />
+						<Button variant="secondary">Como ajudar</Button>
+					</div>
+				</section>
 			</div>
 		</main>
 	);

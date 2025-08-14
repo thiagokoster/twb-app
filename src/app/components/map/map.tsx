@@ -11,8 +11,8 @@ import { CountryInfo } from "@/app/constants";
 export const Map = () => {
 	const [hoveredCountry, setHoveredCountry] = useState<string | null>();
 	return (
-		<div className="relative w-[902px] h-[569px]">
-			<svg xmlns="http://www.w3.org/2000/svg" width="902" height="569" fill="none" viewBox="0 0 902 569">
+		<div className="relative w-[760px] h-[509px]">
+			<svg xmlns="http://www.w3.org/2000/svg" width="760" height="509" fill="none" viewBox="0 0 902 569">
 				<g className="Map">
 					{Object.entries(Countries).map(([code, { d }]) => (
 						<CountryPath 
