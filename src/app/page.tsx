@@ -1,6 +1,7 @@
 import { Carousel } from "./components/carousel";
 import { NavBar } from "./components/navbar";
 import { BlobImage } from "./components/shapes";
+import { Marquee } from "./components/marquee";
 import { Map } from "./components/map/map";
 import { Exclamation } from "./components/drawings";
 import { ListItem } from "./components/list/listItem";
@@ -44,6 +45,7 @@ export default function Home() {
 					</div>
 				</div>
 
+				<Marquee />
 				{/* Section 'Estamos pelo Mundo'*/}
 				<section className="relative overflow-hidden py-20 px-4 md:px-8">
 					{/* Left plane – moved in from the edge */}
