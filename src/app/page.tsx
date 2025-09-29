@@ -6,6 +6,7 @@ import { Map } from "./components/map/map";
 import { Exclamation } from "./components/drawings";
 import { ListItem } from "./components/list/listItem";
 import { Button } from "./components/button";
+import { Story } from "./sections/story";
 
 export default function Home() {
 	return (
@@ -77,6 +78,8 @@ export default function Home() {
 					</div>
 				</section>
 			</div>
+
+			<Story />
 		</main>
 	);
 }
